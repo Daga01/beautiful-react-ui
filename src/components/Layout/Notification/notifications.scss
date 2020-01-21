@@ -1,0 +1,25 @@
+.bi-notification-wrapper {
+  @apply fixed;
+
+  z-index: 9999;
+
+  &.top-right {
+    @apply top-0 right-0;
+  }
+
+  &.top-left {
+    @apply top-0 left-0;
+  }
+
+  &.bottom-left {
+    @apply bottom-0 left-0;
+  }
+
+  &.bottom-right {
+    @apply bottom-0 right-0;
+  }
+
+  .notification-body {
+    @apply h-10 w-48 p-2 bg-white rounded  font-sans shadow-lg;
+  }
+}

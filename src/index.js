@@ -31,6 +31,7 @@ export { default as TextArea } from './components/Forms/TextArea';
 export { default as Grid } from './components/Layout/Grid';
 export { default as Card } from './components/Layout/Card';
 export { default as Sidebar } from './components/Layout/Sidebar';
+export { default as Notification } from './components/Layout/Notification';
 
 // Typography
 export { default as Title } from './components/Typography/Title';
