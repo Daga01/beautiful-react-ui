@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useTimeout } from 'beautiful-react-hooks';
+import { useConditionalTimeout } from 'beautiful-react-hooks';
 import classNames from 'classnames';
 import Portal from '../../Elements/_Portal';
 import { warn } from '../../../shared';
@@ -23,15 +23,18 @@ const Notification = (props) => {
     'bottom-right': position === 'bottom-right',
   }, className);
 
-  const timeoutRef = useRef();
-  // this effect is used to start the timeout only when notification is already open
-  useEffect(() => {
-    if (isOpen && typeof (timeout) === 'number') {
-      clearTimeout(timeoutRef.current)
-      timeoutRef.current = setTimeout(onToggle, timeout);
-    }
-    return () => clearTimeout(timeoutRef.current);
-  }, [isOpen]);
+  /* const timeoutRef = useRef();
+   // this effect is used to start the timeout only when notification is already open
+   useEffect(() => {
+     if (isOpen && typeof (timeout) === 'number') {
+       clearTimeout(timeoutRef.current)
+       timeoutRef.current = setTimeout(onToggle, timeout);
+     }
+     return () => clearTimeout(timeoutRef.current);
+   }, [isOpen]);
+ */
+  console.log(useConditionalTimeout)
+  useConditionalTimeout(onToggle, timeout, isOpen)
 
   return (
     <Portal id="bi-notification">
