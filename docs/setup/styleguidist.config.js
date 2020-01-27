@@ -82,6 +82,7 @@ module.exports = {
         '../../src/components/Layout/Grid/Grid.js',
         '../../src/components/Layout/Card/Card.js',
         '../../src/components/Layout/Sidebar/Sidebar.js',
+        '../../src/components/Layout/NotificationsStack/NotificationsStack.js',
       ],
     },
     {
