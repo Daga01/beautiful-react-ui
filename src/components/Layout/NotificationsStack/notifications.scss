@@ -3,9 +3,10 @@
 .notifications-wrapper {
   @apply relative;
 
-  .bi.bi-notification-wrapper {
-    @apply fixed h-10 w-48 p-2 bg-white font-sans border border-solid;
+  .bi.bi-notification {
+    @apply fixed w-48 p-2 bg-white font-sans border border-solid;
 
+    min-height: 2.5rem;
     z-index: 9999;
 
     // ----------------------------
@@ -92,7 +93,7 @@
     // ----------------------------
     // POSITION
     // ----------------------------
-    &.top {
+    &.bi-notif-top {
       @apply w-full;
 
       top: 0.5rem;
@@ -102,7 +103,7 @@
       }
     }
 
-    &.bottom {
+    &.bi-notif-bottom {
       @apply w-full;
 
       bottom: 0.5rem;
@@ -112,31 +113,31 @@
       }
     }
 
-    &.top-right {
+    &.bi-notif-top-right {
       right: 0.5rem;
       top: 0.5rem;
 
-      + .bi.bi-notification-wrapper {
+      + .bi.bi-notification {
         margin-top: 4rem;
       }
     }
 
 
-    &.top-left {
+    &.bi-notif-top-left {
       left: 0.5rem;
       top: 0.5rem;
       
-      + .bi.bi-notification-wrapper {
+      + .bi.bi-notification {
         margin-top: 4rem;
       }
     }
 
-    &.bottom-left {
+    &.bi-notif-bottom-left {
       left: 0.5rem;
       bottom: 0.5rem;
     }
 
-    &.bottom-right {
+    &.bi-notif-bottom-right {
       right: 0.5rem;
       bottom: 0.5rem;
     }

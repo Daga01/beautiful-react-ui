@@ -1,6 +1,6 @@
 import React, { Children, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useConditionalTimeout } from 'beautiful-react-hooks';
+import { useConditionalTimeout, useTimeout } from 'beautiful-react-hooks';
 import classNames from 'classnames';
 import Portal from '../../Elements/_Portal';
 import Button from '../../Elements/Button/Button';
@@ -11,18 +11,14 @@ import { warn } from '../../../shared';
 
 import './notifications.scss';
 
-
+/**
+ * * A NotificationsStack component shows an alert message positioned over everything else in the document.
+ */
 const Notification = (props) => {
-  const { details, id, isOpen, onToggle } = props;
-  const { position, closable, title, message, animation, timeout, type, className } = details;
+  const { id, onToggle, position, closable, title, message, animation, timeout, type, className } = props;
 
-  const classList = classNames('bi bi-notification-wrapper', {
-    top: position === 'top',
-    bottom: position === 'bottom',
-    'top-right': position === 'top-right',
-    'top-left': position === 'top-left',
-    'bottom-left': position === 'bottom-left',
-    'bottom-right': position === 'bottom-right',
+  const classList = classNames('bi bi-notification', {
+    [`bi-notif-${position}`]: !!position,
     'bi-anim-fade-in': animation === 'fade',
     'bi-anim-zoom-in': animation === 'zoom',
     'bi-anim-slide-right': animation === 'slideRight',
@@ -36,35 +32,28 @@ const Notification = (props) => {
     'danger-notification-type': type === 'danger',
   }, className);
 
+  useTimeout(onToggle, timeout)
+
   return (
-    <>
-      {isOpen && (
-        <div id={id} className={classList}>
-          {closable && (
-            <Button color="transparent" onClick={onToggle} size="small">
-              <CloseIcon />
-            </Button>
-          )}
-        </div>
+    <div id={id} className={classList}>
+      {closable && (
+        <Button color="transparent" onClick={onToggle} size="small">
+          <CloseIcon />
+        </Button>
       )}
-    </>
-  )
+      {title && (
+        <NotificationTitle>{title}</NotificationTitle>
+      )}
+      {message && (
+        <NotificationBody>{message}</NotificationBody>
+      )}
+    </div>
+  );
 };
 
 
 /*
-// this function wipes out the wrong children and warns about it.
-const wipeOutIncorrectChildren = (child) => {
-  if (child.type !== NotificationTitle && child.type !== NotificationBody) {
-    /!**
-     * It is perfectly safe to disable the following eslint rule because the function is only showing an error message
-     *!/
-    // eslint-disable-next-line max-len
-    warn('NotificationsStack allows NotificationsStack.Title and NotificationsStack.Body children only, other elements types are wiped out\');');
-    return null;
-  }
-  return child;
-};
+
 
 /!**
  * A NotificationsStack component shows an alert message positioned over everything else in the document.
