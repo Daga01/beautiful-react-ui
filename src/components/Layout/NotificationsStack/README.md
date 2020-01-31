@@ -2,9 +2,9 @@
 A `Notification` component can be used to warn the users about something.
 
 ```jsx 
-import { Button, NotificationsStack, useNotifications } from 'beautiful-react-ui';
+import { Button, NotificationsStack } from 'beautiful-react-ui';
 
-const messages = [{closable:true,position:'top-right'},{closable:true,position:'top-right'}];
+const messages = [{closable:true,position:'top-right'},{closable:true,position:'top-right',timeout:false,icon:'home', message:'gianfredo'}];
 
 const UncontrolledNotificationsStack = (props) => {
   const [notifications, setNotifications] = React.useState();  

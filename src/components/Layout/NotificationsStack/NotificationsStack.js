@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Portal from '../../Elements/_Portal';
 import Notification from './Notification';
-import PropTypes from 'prop-types';
+import removeByIndex from './utils/removeById';
 
 
 /**
@@ -11,11 +12,10 @@ import PropTypes from 'prop-types';
 const NotificationsStack = (props) => {
   const { notifications, onChange, NotificationRender } = props;
 
-  const filterById = (id) => notifications.filter((n, index) => index !== id);
-
   // onClose function will be run on timeout or when closing the notification
   const onClose = (id) => {
-    const newNotificationsArray = filterById(id);
+    const newNotificationsArray = removeByIndex(id, notifications);
+
     onChange(newNotificationsArray);
   };
 

@@ -4,10 +4,24 @@
   @apply relative;
 
   .bi.bi-notification {
-    @apply fixed w-48 p-2 bg-white font-sans border border-solid;
+    @apply fixed p-2 bg-white font-sans border border-solid;
 
+    min-width: 14rem;
+    max-width: 24rem;
     min-height: 2.5rem;
     z-index: 9999;
+
+    .notification-content {
+      @apply ml-4;
+
+      .bi-title {
+        @apply font-semibold;
+      }
+
+      .notification-message {
+        @apply text-default-darker break-all;
+      }
+    }
 
     // ----------------------------
     // NOTIFICATION TYPE
@@ -20,8 +34,12 @@
         color: theme("colors.primary");
       }
 
-      .notification-title {
-        color: theme("colors.primary");
+      .notification-content {
+        .bi-title {
+
+
+          color: theme("colors.primary");
+        }
       }
     }
 
@@ -33,10 +51,12 @@
         color: theme("colors.info");
       }
 
-      .notification-title {
-        @apply font-semibold;
+      .notification-content {
+        .bi-title {
 
-        color: theme("colors.info-darker");
+
+          color: theme("colors.info-darker");
+        }
       }
     }
 
@@ -48,10 +68,10 @@
         color: theme("colors.success");
       }
 
-      .notification-title {
-        @apply font-semibold;
-
-        color: theme("colors.success-darker");
+      .notification-content {
+        .bi-title {
+          color: theme("colors.success-darker");
+        }
       }
     }
 
@@ -63,10 +83,12 @@
         color: theme("colors.warning");
       }
 
-      .notification-title {
-        @apply font-semibold;
+      .notification-content {
+        .bi-title {
 
-        color: theme("colors.warning-darker");
+
+          color: theme("colors.warning-darker");
+        }
       }
     }
 
@@ -78,17 +100,15 @@
         color: theme("colors.danger");
       }
 
-      .notification-title {
-        @apply font-semibold;
+      .notification-content {
 
-        color: theme("colors.danger-darker");
+        .bi-title {
+
+
+          color: theme("colors.danger-darker");
+        }
       }
     }
-
-    .bi.bi-btn {
-      @apply absolute right-0;
-    }
-
 
     // ----------------------------
     // POSITION
@@ -98,7 +118,7 @@
 
       top: 0.5rem;
 
-      .notification-body {
+      .notification-message {
         @apply w-full;
       }
     }
@@ -108,7 +128,7 @@
 
       bottom: 0.5rem;
 
-      .notification-body {
+      .notification-message {
         @apply w-full;
       }
     }
@@ -126,7 +146,7 @@
     &.bi-notif-top-left {
       left: 0.5rem;
       top: 0.5rem;
-      
+
       + .bi.bi-notification {
         margin-top: 4rem;
       }
@@ -143,8 +163,5 @@
     }
 
 
-    .notification-body {
-      @apply text-default-darker;
-    }
   }
 }
