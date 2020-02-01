@@ -1,25 +1,29 @@
 @import "../../../theme/utils/animations.scss";
 
 .notifications-wrapper {
-  @apply relative;
+  @apply fixed;
 
+  z-index: 9999;
   .bi.bi-notification {
-    @apply fixed p-2 bg-white font-sans border border-solid;
+    @apply relative p-2 bg-white font-sans border border-solid;
 
     min-width: 14rem;
     max-width: 24rem;
     min-height: 2.5rem;
-    z-index: 9999;
 
-    .notification-content {
-      @apply ml-4;
+    .notification-grid {
+      min-height: 2.5rem;
 
-      .bi-title {
-        @apply font-semibold;
-      }
+      .notification-content {
+        @apply ml-4;
 
-      .notification-message {
-        @apply text-default-darker break-all;
+        .bi-title {
+          @apply font-semibold;
+        }
+
+        .notification-message {
+          @apply text-default-darker break-all;
+        }
       }
     }
 
@@ -118,9 +122,6 @@
 
       top: 0.5rem;
 
-      .notification-message {
-        @apply w-full;
-      }
     }
 
     &.bi-notif-bottom {
@@ -128,9 +129,7 @@
 
       bottom: 0.5rem;
 
-      .notification-message {
-        @apply w-full;
-      }
+
     }
 
     &.bi-notif-top-right {

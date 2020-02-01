@@ -37,13 +37,13 @@ const Notification = (props) => {
 
   return (
     <div className={classList}>
-      <Grid itemsAlign="center">
-        <GridColumn size="2" selfAlign="stretch"><NotificationLeftSide icon={icon} avatar={avatar} /></GridColumn>
-        <GridColumn className="notification-content" selfAlign="stretch">
+      <Grid itemsAlign="center" className="notification-grid">
+        <GridColumn size="2"><NotificationLeftSide icon={icon} avatar={avatar} /></GridColumn>
+        <GridColumn className="notification-content">
           <NotificationContent title={title} message={message} />
         </GridColumn>
         {closable && (
-          <GridColumn size="2" selfAlign="stretch">
+          <GridColumn size="2">
             <Button color="transparent" onClick={onToggle} size="small">
               <CloseIcon />
             </Button>

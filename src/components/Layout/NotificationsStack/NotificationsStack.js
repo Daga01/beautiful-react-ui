@@ -21,15 +21,17 @@ const NotificationsStack = (props) => {
 
   return (
     <Portal id="bi-notification">
-      <div className="notifications-wrapper">
-        {notifications && notifications.map((item, index) =>
-          <NotificationRender {...item} onToggle={() => onClose(index)} />)}
-      </div>
+      {notifications && notifications.map((item, index) =>
+        <div className="notifications-wrapper">
+          <NotificationRender {...item} onToggle={() => onClose(index)} />
+        </div>
+      )}
     </Portal>
   );
 };
 
 NotificationsStack.propTypes = {
+
   /**
    * This prop could be use to render a different notification from the default one.
    */
