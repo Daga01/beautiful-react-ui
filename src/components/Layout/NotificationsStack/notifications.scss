@@ -1,166 +1,111 @@
 @import "../../../theme/utils/animations.scss";
 
-.notifications-wrapper {
-  @apply fixed;
+.bi.bi-notification {
+  @apply relative p-2 bg-white font-sans border border-solid;
 
-  z-index: 9999;
-  .bi.bi-notification {
-    @apply relative p-2 bg-white font-sans border border-solid;
+  min-width: 14rem;
+  max-width: 24rem;
+  min-height: 2.5rem;
 
-    min-width: 14rem;
-    max-width: 24rem;
+  .notification-grid {
     min-height: 2.5rem;
 
-    .notification-grid {
-      min-height: 2.5rem;
+    .notification-content {
+      @apply ml-4;
 
-      .notification-content {
-        @apply ml-4;
+      .bi-title {
+        @apply font-semibold;
+      }
 
-        .bi-title {
-          @apply font-semibold;
-        }
-
-        .notification-message {
-          @apply text-default-darker break-all;
-        }
+      .notification-message {
+        @apply text-default-darker break-all;
       }
     }
+  }
 
-    // ----------------------------
-    // NOTIFICATION TYPE
-    // ----------------------------
-    &.default-notification-type {
-      border-color: theme("colors.primary");
-      background-color: theme("colors.primary-lightest");
+  // ----------------------------
+  // NOTIFICATION TYPE
+  // ----------------------------
+  &.default-notification-type {
+    border-color: theme("colors.primary");
+    background-color: theme("colors.primary-lightest");
 
-      .bi.bi-btn {
+    .bi.bi-btn {
+      color: theme("colors.primary");
+    }
+
+    .notification-content {
+      .bi-title {
+
+
         color: theme("colors.primary");
       }
+    }
+  }
 
-      .notification-content {
-        .bi-title {
+  &.info-notification-type {
+    border-color: theme("colors.info");
+    background-color: theme("colors.info-lightest");
 
-
-          color: theme("colors.primary");
-        }
-      }
+    .bi.bi-btn {
+      color: theme("colors.info");
     }
 
-    &.info-notification-type {
-      border-color: theme("colors.info");
-      background-color: theme("colors.info-lightest");
-
-      .bi.bi-btn {
-        color: theme("colors.info");
-      }
-
-      .notification-content {
-        .bi-title {
+    .notification-content {
+      .bi-title {
 
 
-          color: theme("colors.info-darker");
-        }
+        color: theme("colors.info-darker");
       }
     }
+  }
 
-    &.success-notification-type {
-      border-color: theme("colors.success");
-      background-color: theme("colors.success-lightest");
+  &.success-notification-type {
+    border-color: theme("colors.success");
+    background-color: theme("colors.success-lightest");
 
-      .bi.bi-btn {
-        color: theme("colors.success");
-      }
-
-      .notification-content {
-        .bi-title {
-          color: theme("colors.success-darker");
-        }
-      }
+    .bi.bi-btn {
+      color: theme("colors.success");
     }
 
-    &.warning-notification-type {
-      border-color: theme("colors.warning");
-      background-color: theme("colors.warning-lightest");
-
-      .bi.bi-btn {
-        color: theme("colors.warning");
-      }
-
-      .notification-content {
-        .bi-title {
-
-
-          color: theme("colors.warning-darker");
-        }
+    .notification-content {
+      .bi-title {
+        color: theme("colors.success-darker");
       }
     }
+  }
 
-    &.danger-notification-type {
-      border-color: theme("colors.danger");
-      background-color: theme("colors.danger-lightest");
+  &.warning-notification-type {
+    border-color: theme("colors.warning");
+    background-color: theme("colors.warning-lightest");
 
-      .bi.bi-btn {
-        color: theme("colors.danger");
-      }
-
-      .notification-content {
-
-        .bi-title {
-
-
-          color: theme("colors.danger-darker");
-        }
-      }
+    .bi.bi-btn {
+      color: theme("colors.warning");
     }
 
-    // ----------------------------
-    // POSITION
-    // ----------------------------
-    &.bi-notif-top {
-      @apply w-full;
-
-      top: 0.5rem;
-
-    }
-
-    &.bi-notif-bottom {
-      @apply w-full;
-
-      bottom: 0.5rem;
+    .notification-content {
+      .bi-title {
 
 
-    }
-
-    &.bi-notif-top-right {
-      right: 0.5rem;
-      top: 0.5rem;
-
-      + .bi.bi-notification {
-        margin-top: 4rem;
+        color: theme("colors.warning-darker");
       }
     }
+  }
 
+  &.danger-notification-type {
+    border-color: theme("colors.danger");
+    background-color: theme("colors.danger-lightest");
 
-    &.bi-notif-top-left {
-      left: 0.5rem;
-      top: 0.5rem;
+    .bi.bi-btn {
+      color: theme("colors.danger");
+    }
 
-      + .bi.bi-notification {
-        margin-top: 4rem;
+    .notification-content {
+
+      .bi-title {
+        color: theme("colors.danger-darker");
       }
     }
-
-    &.bi-notif-bottom-left {
-      left: 0.5rem;
-      bottom: 0.5rem;
-    }
-
-    &.bi-notif-bottom-right {
-      right: 0.5rem;
-      bottom: 0.5rem;
-    }
-
-
   }
 }
+

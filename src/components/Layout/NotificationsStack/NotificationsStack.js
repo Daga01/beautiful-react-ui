@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Portal from '../../Elements/_Portal';
 import Notification from './Notification';
-import removeByIndex from './utils/removeById';
+import NotificationsWrapper from './NotificationsWrapper';
 
 
 /**
@@ -12,26 +12,18 @@ import removeByIndex from './utils/removeById';
 const NotificationsStack = (props) => {
   const { notifications, onChange, NotificationRender } = props;
 
-  // onClose function will be run on timeout or when closing the notification
-  const onClose = (id) => {
-    const newNotificationsArray = removeByIndex(id, notifications);
-
-    onChange(newNotificationsArray);
-  };
-
   return (
     <Portal id="bi-notification">
-      {notifications && notifications.map((item, index) =>
-        <div className="notifications-wrapper">
-          <NotificationRender {...item} onToggle={() => onClose(index)} />
-        </div>
+      {notifications && (
+        <NotificationsWrapper NotificationRender={NotificationRender} onChange={onChange}>
+          {notifications}
+        </NotificationsWrapper>
       )}
     </Portal>
   );
 };
 
 NotificationsStack.propTypes = {
-
   /**
    * This prop could be use to render a different notification from the default one.
    */

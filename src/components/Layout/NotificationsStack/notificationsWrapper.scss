@@ -1,0 +1,64 @@
+.notifications-wrapper {
+  @apply fixed;
+  z-index: 9999;
+
+  // ----------------------------
+  // POSITION
+  // ----------------------------
+  &.wrapper-tr {
+    right: 0.5rem;
+    top: 0.5rem;
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+
+  &.wrapper-br {
+    right: 0.5rem;
+    bottom: 0.5rem;
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+
+  &.wrapper-top {
+    @apply w-full;
+
+    top: 0.5rem;
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+
+  &.wrapper-bottom {
+    @apply w-full;
+
+    bottom: 0.5rem;
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+
+  &.wrapper-tl {
+    left: 0.5rem;
+    top: 0.5rem;
+
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+
+  &.wrapper-bl {
+    left: 0.5rem;
+    bottom: 0.5rem;
+
+    .bi.bi-notification + .bi.bi-notification {
+      margin-top: 1rem;
+    }
+  }
+}
